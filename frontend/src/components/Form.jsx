@@ -8,9 +8,9 @@ import LoadingIndicator from "./LoadingIndicator";
 
 function Form({ route, method }) {
   /* This Form will be used for logging in or out */
-  const[username, setUsername] = useState("");
-  const[password, setPassword] = useState("");
-  const[loading, setLoading] = useState(false);
+  const [username, setUsername] = useState("");
+  const [password, setPassword] = useState("");
+  const [loading, setLoading] = useState(false);
   const navigate = useNavigate();
   const name = method === "login" ? "Login" : "Register";
 
