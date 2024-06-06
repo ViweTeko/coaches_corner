@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import axios from "axios"; // Assuming you use Axios for API calls
+import axios from "axios";
 
 const Data = () => {
   const [players, setPlayers] = useState([]);

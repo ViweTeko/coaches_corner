@@ -2,6 +2,7 @@
 from django.contrib.auth.models import User
 from rest_framework import serializers
 from .models import Note
+from .models import Player
 
 class UserSerializer(serializers.ModelSerializer):
     """Serializer for the User model."""
@@ -22,3 +23,10 @@ class NoteSerializer(serializers.ModelSerializer):
         model = Note
         fields = ['id', 'title', 'content', 'created_at', 'author']
         extra_kwargs = {'author': {'read_only': True}}
+
+class PlayerSerializer(serializers.ModelSerializer):
+    """ Serializer for the Player Model"""
+    class Meta:
+        model = Player
+        fields = [ 'first_name', 'last_name', 'age',
+                  'school', 'weight', 'height']

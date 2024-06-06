@@ -11,4 +11,16 @@ class Note(models.Model):
     def __str___(self):
         """Return the title of the note."""
         return self.title
-    
+
+
+class Player(models.Model):
+    playerID = models.AutoField(primary_key=True)
+    first_name = models.CharField(max_length=80)
+    last_name = models.CharField(max_length=80)
+    age = models.IntegerField()
+    weight = models.FloatField()
+    height = models.FloatField()
+    school = models.CharField(max_length=120)
+
+    def __str__(self):
+        return f"{self.first_name} {self.last_name}"
