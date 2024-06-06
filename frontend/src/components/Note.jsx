@@ -1,6 +1,6 @@
 /* This script displays the database table */
 import React from "react";
-import "../styles/Home.css";
+import "../styles/Note.css";
 
 function Note({ note, onDelete }) {
   const formattedDate = new Date(note.created_at).toLocaleDateString("en-US");
