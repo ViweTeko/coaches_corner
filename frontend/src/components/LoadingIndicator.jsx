@@ -1,3 +1,5 @@
+/* This script shows a loading indicator when user presses
+  register and login buttons */
 import "../styles/LoadingIndicator.css";
 
 const LoadingIndicator = () => {

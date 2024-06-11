@@ -1,7 +1,9 @@
+/* This script is the Home page when login has been successful*/
 import { useState, useEffect } from "react";
 import api from "../api";
 import Note from "../components/Note";
 import "../styles/Home.css";
+import Data from "./Players";
 
 function Home() {
   const [notes, setNotes] = useState([]);
@@ -10,6 +12,7 @@ function Home() {
 
   useEffect(() => {
     getNotes();
+    getPlayers();
   }, []);
 
   const getNotes = () => {
@@ -76,7 +79,7 @@ function Home() {
           onChange={(e) => setContent(e.target.value)}
         ></textarea>
         <br />
-        <input type="submit" value="Submit"></input>
+        <input type="submit" value="Submit" />
       </form>
     </div>
   );
