@@ -10,9 +10,7 @@ class NoteListCreate(generics.ListCreateAPIView):
     """View for listing and creating notes."""
     # queryset = Note.objects.all()
     serializer_class = NoteSerializer
-    permission_classes = [
-        IsAuthenticated
-    ]
+    permission_classes = [IsAuthenticated]
 
     def get_queryset(self):
         """Return the notes created by the user."""
@@ -29,9 +27,7 @@ class NoteListCreate(generics.ListCreateAPIView):
 class NoteDelete(generics.DestroyAPIView):
     """View for deleting a note."""
     serializer_class = NoteSerializer
-    permission_classes = [
-        IsAuthenticated
-    ]
+    permission_classes = [IsAuthenticated]
 
     def get_queryset(self):
         """Return the notes created by the user."""
@@ -41,15 +37,11 @@ class NoteDelete(generics.DestroyAPIView):
 class CreateUserView(generics.CreateAPIView):
     """View for creating a new user."""
     queryset = User.objects.all()
-    permission_classes = [
-        AllowAny
-    ]
+    permission_classes = [AllowAny]
     serializer_class = UserSerializer
 
 class PlayerList(generics.ListCreateAPIView):
-    """
-    API endpoint for listing and creating players.
-    """
+    """View for listing and creating players."""
     def getPlayer(self, request):
         players = Player.objects.all()
         serializer = PlayerSerializer(players, many=True)
@@ -63,9 +55,7 @@ class PlayerList(generics.ListCreateAPIView):
         return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
 
 class PlayerDetail(generics.RetrieveUpdateDestroyAPIView):
-    """
-    API endpoint for retrieving, updating, or deleting a specific player.
-    """
+    """View for retrieving, updating, or deleting specific player."""
     def get_object(self, pk):
         player = get_object_or_404(Player, pk=pk)
         return player
@@ -89,8 +79,6 @@ class PlayerDetail(generics.RetrieveUpdateDestroyAPIView):
         return Response(status=status.HTTP_204_NO_CONTENT)
 
 class thePlay(generics.RetrieveUpdateDestroyAPIView):
-    """
-    API endpoint for retrieving, updating, or deleting a specific player using generic view.
-    """
+    """View for retrieving, updating, or deleting specific player."""
     queryset = Player.objects.all()
     serializer_class = PlayerSerializer
